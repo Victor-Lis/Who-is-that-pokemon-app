@@ -1,20 +1,53 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect } from 'react'
+
+import Routes from './src/Router/Routes';
+import Login from './src/Components/Login';
+
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function App() {
+
+  const [userID, setUserID] = useState(null)
+
+  async function getUserUid() {
+
+    let userid;
+    // userid = await AsyncStorage.getItem('@useruid')
+
+    if (userid) {
+
+      setUserID(userid)
+
+    }
+
+  }
+
+  useEffect(() => {
+
+    getUserUid()
+
+  }, [])
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+
+    <>
+
+      <StatusBar hidden={true} />
+      {userID ? (
+
+        <Routes userID={userID} setUserID={setUserID}/>
+
+      ) : (
+
+        <>
+          <StatusBar hidden={true} />
+          <Login setUserID={setUserID} />
+        </>
+
+      )}
+
+    </>
+
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

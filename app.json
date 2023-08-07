@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "who-is-that-pokemon-game",
-    "slug": "who-is-that-pokemon-game",
+    "name": "Who's that pokemon?",
+    "slug": "who-is-that-pokemon",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#ff000a"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -20,11 +20,17 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "backgroundColor": "#ff000a"
+      },
+      "package": "dev_victor.who_is_that_pokemon_app"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "059368c0-cf45-4c1f-aec4-a73105ddbbe5"
+      }
     }
   }
 }
